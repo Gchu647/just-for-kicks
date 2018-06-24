@@ -45,13 +45,32 @@ for (let i = 0; i < thumbsUpClass.length; i++) {
 
 //track of the number of times clicked and go up one everytime
 function countUp(num) {
-    var countClass = document.getElementsByClassName("countin")[num].innerHTML = 1;
-    //if (), if not zero add up.
+    var countClass = document.getElementsByClassName("countin")[num];
+    var plusone = parseInt(countClass.innerHTML);
+
+    if (countClass.innerHTML >= 1) {
+        plusone += 1;
+    } else {
+        plusone = 1;
+    }
+
+    countClass.innerHTML = plusone;
 }
 
-
-
 //5. Add an event to the plus icon that will increment the price of the Air Jordan V shoe each time the icon is clicked on.
+
+var increaseIcon = increase.children[0];
+var airJordan5Price = increase.parentElement;
+increaseIcon.addEventListener("click", increasePrice);
+
+function increasePrice() {
+    var num = parseInt(airJordan5Price.innerText) + 1;
+    // I have to use innerHTML here because innerText wipes out everything
+    airJordan5Price.innerHTML = num + "<span id='increase'><i class='far fa-plus-square'></i></span>";
+    //I have to redo the button, because the button seems to be wiped out too.
+    increaseIcon = increase.children[0];
+    increaseIcon.addEventListener('click', increasePrice);
+}
 
 
 //6. Add an event to the minus icon that will decrement the price of the Air Jordan V shoe each time the icon is clicked on.
