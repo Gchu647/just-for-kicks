@@ -64,7 +64,7 @@ increaseIcon.addEventListener("click", increasePrice);
 
 function increasePrice() {
     var num = parseInt(airJordan5Price.innerText) + 1;
-    // I have to use innerHTML here because innerText wipes out everything
+    // I have to use innerHTML here because innerText wipes out all the divs in innerHTML.
     airJordan5Price.innerHTML = num + "<span id='increase'><i class='far fa-plus-square'></i></span>";
     //I have to redo the button, because the button seems to be wiped out too.
     increaseIcon = increase.children[0];
@@ -79,6 +79,7 @@ decreaseIcon.addEventListener("click", decreasePrice);
 
 function decreasePrice() {
     var num = parseInt(airJordan6Price.innerText) - 1;
+
     airJordan6Price.innerHTML = num + "<span id='decrease'><i class='far fa-minus-square'></i> </span>";
     decreaseIcon = decrease.children[0];
     decreaseIcon.addEventListener("click", decreasePrice);
